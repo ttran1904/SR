@@ -48,21 +48,16 @@ class DIV2K(Dataset):
         Get item at certain INDEX
 
         """
-        
+        LR_single_image_path = self.lr_image_list[index]
+        HR_single_image_path = self.hr_image_list[index]
 
-        crop
-        LR_image_cropped = LR_image.crop((0, 0, 256, 256))
-        HR_image_cropped = HR_image.crop((0, 0, 1024, 1024))
+        LR_image = Image.open(LR_single_image_path)
+        HR_image = Image.open(HR_single_image_path)
 
-        convert both into np
-        LR_image_np = np.asarray(LR_image_cropped)/255
-        HR_image_np = np.asarray(HR_image_cropped)/255
-        convert both into tensor
-        LR_image_tensor = torch.from_numpy(LR_image_np).float()
-        HR_image_tensor = torch.from_numpy(HR_image_np).float()
+        LR_trans = self.transLR(LR_image)
+        HR_trans = self.transHR(HR_image)
 
-        return (LR, HR)
-        # return (LR_image_tensor, HR_image_tensor)
+        return (LR_trans, HR_trans)
 
     def __len__(self):
         return self.data_len
