@@ -4,4 +4,4 @@ Super Resolution (SR) project in MLAB. Create high resolution images (HR) from l
 References:
 https://arxiv.org/pdf/1707.02921.pdf \
 https://arxiv.org/pdf/1808.03344.pdf \
-https://arxiv.org/pdf/1501.00092.pdf \
+https://arxiv.org/pdf/1501.00092.pdf
